@@ -5,7 +5,7 @@ using System;
 public class HUDController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText, timerText, difficultyText, ammoText;
-    private Image shieldIcon;
+    //private Image shieldIcon;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private ScoringSystem scoring;
     [SerializeField] private GameStateManager gameManager;
@@ -21,7 +21,7 @@ public class HUDController : MonoBehaviour
         if (player)
         {
             player.OnAmmoChanged += a => ammoText.text = $"Ammo: {a}";
-            player.OnShieldStatusChanged += active => shieldIcon.enabled = active;
+            //player.OnShieldStatusChanged += active => shieldIcon.enabled = active;
             player.OnHealthChanged += (h, m) => healthSlider.value = (float)h / m;
         }
         if (gameManager)
@@ -29,7 +29,7 @@ public class HUDController : MonoBehaviour
             gameManager.OnDifficultyChanged += d => difficultyText.text = $"Difficulty: {d}";
             difficultyText.text = $"Difficulty: {gameManager.CurrentDifficulty}";
         }
-        shieldIcon.enabled = false;
+        //shieldIcon.enabled = false;
     }
     private void Update()
     {
