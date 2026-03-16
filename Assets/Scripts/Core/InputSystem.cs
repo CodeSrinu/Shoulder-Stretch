@@ -8,7 +8,7 @@ public class InputSystem : MonoBehaviour
     public event Action<ActionType> OnActionAttempted;
     [SerializeField] private GameStateManager gameManager;
     [SerializeField] private DifficultyScaler difficultyScaler;
-    [SerializeField] private float punchCooldown = 0.5f;
+    [SerializeField] private float punchCooldown = 0f;
     [SerializeField] private float pickupCooldown = 1.0f;
     [SerializeField] private float shootCooldown = 0.3f;
     [SerializeField] private float shieldCooldown = 2.0f;
@@ -66,7 +66,7 @@ public class InputSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D)) TryPerformAction(ActionType.RightPunch);
         if (Input.GetKeyDown(KeyCode.W)) TryPerformAction(ActionType.PickupGun);
         if (Input.GetKeyDown(KeyCode.S)) TryPerformAction(ActionType.Shoot);
-        if (Input.GetKeyDown(KeyCode.Space)) TryPerformAction(ActionType.Shield);
+        // if (Input.GetKeyDown(KeyCode.Space)) TryPerformAction(ActionType.Shield);
     }
     private void TryPerformAction(ActionType action)
     {
@@ -87,9 +87,9 @@ public class InputSystem : MonoBehaviour
             case ActionType.Shoot:
                 if (shootTimer <= 0) { shootTimer = shootCooldown * mult; success = true; }
                 break;
-            case ActionType.Shield:
-                if (shieldTimer <= 0) { shieldTimer = shieldCooldown * mult; success = true; }
-                break;
+            // case ActionType.Shield:
+            //     if (shieldTimer <= 0) { shieldTimer = shieldCooldown * mult; success = true; }
+            //     break;
         }
         if (success) SuccessfulActions++;
         else FailedActions++;

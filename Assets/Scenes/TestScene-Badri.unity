@@ -1692,8 +1692,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputSystem: {fileID: 802350958}
   player: {fileID: 835655360}
-  punchRange: 2
-  punchDamage: 50
+  punchRange: 4
+  punchDamage: 100
   shootRange: 50
   shootDamage: 100
 --- !u!114 &835655360

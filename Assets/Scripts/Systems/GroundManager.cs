@@ -44,8 +44,8 @@ public class GroundManager : MonoBehaviour
   }
   private void ApplyProceduralVariation(GameObject segment)
   {
-    float randomWidth = Random.Range(10f, 15f);
-    segment.transform.localScale = new Vector3(randomWidth, 1f, segmentLength);
+    // float randomWidth = Random.Range(10f, 15f);
+    segment.transform.localScale = new Vector3(1.5f, 1f, segmentLength);
     foreach (Transform child in segment.transform) if (child.name.Contains("Marker")) child.gameObject.SetActive(Random.value > 0.5f);
   }
 }

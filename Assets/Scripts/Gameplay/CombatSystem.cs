@@ -3,7 +3,7 @@ public class CombatSystem : MonoBehaviour
 {
     [SerializeField] private InputSystem inputSystem;
     [SerializeField] private PlayerController player;
-    [SerializeField] private float punchRange = 2f;
+    [SerializeField] private float punchRange = 4f;
     [SerializeField] private int punchDamage = 50;
     [SerializeField] private float shootRange = 50f;
     [SerializeField] private int shootDamage = 100;
@@ -31,7 +31,9 @@ public class CombatSystem : MonoBehaviour
         Vector3 origin = transform.position + transform.forward + (isLeft ? -transform.right : transform.right);
         Collider[] hits = Physics.OverlapSphere(origin, punchRange);
         foreach (var hit in hits) if (hit.TryGetComponent<Enemy>(out var enemy)) enemy.TakeDamage(punchDamage);
+        
     }
+    
     private void PerformShoot()
     {
         if (player == null || !player.UseAmmo()) return;

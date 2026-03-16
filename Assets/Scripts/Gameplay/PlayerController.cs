@@ -54,14 +54,14 @@ public class PlayerController : MonoBehaviour
             if (shieldTimer <= 0) { isShieldActive = false; OnShieldStatusChanged?.Invoke(false); }
         }
     }
-    private void HandleMovement()
+     private void HandleMovement()
     {
         float forward = (difficultyScaler?.ForwardSpeed ?? 5f) * Time.deltaTime;
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float horizontal = horizontalInput * (difficultyScaler?.HorizontalSpeed ?? 5f) * Time.deltaTime;
-        Vector3 newPos = transform.position + new Vector3(horizontal, 0, forward);
-        float limit = difficultyScaler?.BoundaryX ?? 4f;
-        newPos.x = Mathf.Clamp(newPos.x, -limit, limit);
+    //     float horizontalInput = Input.GetAxisRaw("Horizontal");
+    //     float horizontal = horizontalInput * (difficultyScaler?.HorizontalSpeed ?? 5f) * Time.deltaTime;
+        Vector3 newPos = transform.position + new Vector3(0, 0, forward);
+    //     float limit = difficultyScaler?.BoundaryX ?? 4f;
+    //     newPos.x = Mathf.Clamp(newPos.x, -limit, limit);
         transform.position = newPos;
     }
     public void TakeDamage(int damage)
