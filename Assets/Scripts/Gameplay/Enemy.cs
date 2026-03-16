@@ -22,6 +22,11 @@ public class Enemy : MonoBehaviour
         Vector3 direction = (player.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
         if (Vector3.Distance(transform.position, player.position) < 1.5f) { Attack(); }
+        if (player.position.z > transform.position.z + 8f)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
     }
     private void Attack()
     {
