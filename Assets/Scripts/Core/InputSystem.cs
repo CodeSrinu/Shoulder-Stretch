@@ -21,6 +21,7 @@ public class InputSystem : MonoBehaviour
     public int TotalAttempts => SuccessfulActions + FailedActions;
     public float AccuracyPercentage => TotalAttempts > 0 ? (float)SuccessfulActions / TotalAttempts * 100f : 100f;
     private bool inputEnabled = false;
+    [SerializeField] Animator animator;
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(gameObject);
@@ -62,8 +63,16 @@ public class InputSystem : MonoBehaviour
     }
     private void ProcessInput()
     {
-        if (Input.GetKeyDown(KeyCode.A)) TryPerformAction(ActionType.LeftPunch);
-        if (Input.GetKeyDown(KeyCode.D)) TryPerformAction(ActionType.RightPunch);
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            TryPerformAction(ActionType.LeftPunch);
+            animator.SetTrigger("LeftPunch");
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            TryPerformAction(ActionType.RightPunch);
+            animator.SetTrigger("RightPunch");
+        }
         if (Input.GetKeyDown(KeyCode.W)) TryPerformAction(ActionType.PickupGun);
         if (Input.GetKeyDown(KeyCode.S)) TryPerformAction(ActionType.Shoot);
         // if (Input.GetKeyDown(KeyCode.Space)) TryPerformAction(ActionType.Shield);
@@ -76,16 +85,28 @@ public class InputSystem : MonoBehaviour
         switch (action)
         {
             case ActionType.LeftPunch:
-                if (leftPunchTimer <= 0) { leftPunchTimer = punchCooldown * mult; LeftActionCount++; success = true; }
+                if (leftPunchTimer <= 0) 
+                { 
+                    leftPunchTimer = punchCooldown * mult; LeftActionCount++; success = true;
+                }
                 break;
             case ActionType.RightPunch:
-                if (rightPunchTimer <= 0) { rightPunchTimer = punchCooldown * mult; RightActionCount++; success = true; }
+                if (rightPunchTimer <= 0) 
+                { 
+                    rightPunchTimer = punchCooldown * mult; RightActionCount++; success = true; 
+                }
                 break;
             case ActionType.PickupGun:
-                if (pickupTimer <= 0) { pickupTimer = pickupCooldown * mult; success = true; }
+                if (pickupTimer <= 0) 
+                { 
+                    pickupTimer = pickupCooldown * mult; success = true; 
+                }
                 break;
             case ActionType.Shoot:
-                if (shootTimer <= 0) { shootTimer = shootCooldown * mult; success = true; }
+                if (shootTimer <= 0) 
+                { 
+                    shootTimer = shootCooldown * mult; success = true; 
+                }
                 break;
             // case ActionType.Shield:
             //     if (shieldTimer <= 0) { shieldTimer = shieldCooldown * mult; success = true; }
