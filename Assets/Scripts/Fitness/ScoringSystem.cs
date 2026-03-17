@@ -33,9 +33,17 @@ public class ScoringSystem : MonoBehaviour
     }
     private void HandleAction(ActionType action, bool success)
     {
-        if (success) { combo++; currentScore += basePoints * combo; OnScoreChanged?.Invoke(currentScore); }
-        else combo = 0;
+        if (success) 
+        { combo++;
+          currentScore += basePoints * combo; 
+          OnScoreChanged?.Invoke(currentScore); 
+        }
+        else 
+          combo = 0;
     }
+
+
+
     private void HandleStateChange(GameState state)
     {
         if (state == GameState.Running) { currentScore = 0; combo = 0; OnScoreChanged?.Invoke(0); }

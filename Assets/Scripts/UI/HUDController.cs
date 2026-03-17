@@ -35,7 +35,7 @@ public class HUDController : MonoBehaviour
     {
         if (fitness)
         {
-            TimeSpan t = TimeSpan.FromSeconds(fitness.Duration);
+            TimeSpan t = TimeSpan.FromSeconds(fitness.TimeRemaining);
             timerText.text = string.Format("{0:D2}:{1:D2}", t.Minutes, t.Seconds);
         }
     }

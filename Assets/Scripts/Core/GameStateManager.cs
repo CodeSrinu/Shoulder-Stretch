@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public enum GameState { Idle, Running, Combat, Dashboard, Paused }
 public enum Difficulty { Beginner, Moderate, Expert }
 public class GameStateManager : MonoBehaviour
@@ -57,6 +58,7 @@ public class GameStateManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SetState(GameState.Idle);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void RestartGame()
     {
@@ -64,6 +66,7 @@ public class GameStateManager : MonoBehaviour
         sessionStartTime = Time.time;
         SetState(GameState.Running);
     }
+
     public void SetStateDirectly(GameState newState) => SetState(newState);
     private void SetState(GameState newState)
     {

@@ -3,8 +3,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameStateManager gameManager;
-    [SerializeField] private GameObject menuPanel, difficultyPanel, hudPanel, pausePanel, dashboardPanel;
-    [SerializeField] private Button startButton, beginnerBtn, moderateBtn, expertBtn;
+    [SerializeField] private GameObject menuPanel, difficultyPanel, hudPanel, pausePanel, dashboardPanel, analyticsPanel, graphPanel;
+    [SerializeField] private Button startButton, beginnerBtn, moderateBtn, expertBtn, dashboardNxtBtn, analyticsNxtBtn, graphNxtBtn;
     private void Start()
     {
         if (gameManager == null) gameManager = FindFirstObjectByType<GameStateManager>();
@@ -12,6 +12,10 @@ public class UIManager : MonoBehaviour
         if (beginnerBtn) beginnerBtn.onClick.AddListener(() => StartWithDifficulty(0));
         if (moderateBtn) moderateBtn.onClick.AddListener(() => StartWithDifficulty(1));
         if (expertBtn) expertBtn.onClick.AddListener(() => StartWithDifficulty(2));
+        if (dashboardNxtBtn) dashboardNxtBtn.onClick.AddListener(() => ShowAnalytics());
+        if (analyticsNxtBtn) analyticsNxtBtn.onClick.AddListener(() => ShowGraph());
+        if (graphNxtBtn) graphNxtBtn.onClick.AddListener(() => gameManager.ReturnToIdle());
+
         if (gameManager != null) gameManager.OnStateChanged += HandleStateChange;
     }
     private void ShowDifficultySelection()
@@ -43,6 +47,8 @@ public class UIManager : MonoBehaviour
             hudPanel?.SetActive(false);
             pausePanel?.SetActive(false);
             dashboardPanel?.SetActive(false);
+            analyticsPanel?.SetActive(false);
+            graphPanel?.SetActive(false);
         }
         else
         {
@@ -52,4 +58,19 @@ public class UIManager : MonoBehaviour
             dashboardPanel?.SetActive(state == GameState.Dashboard);
         }
     }
+
+
+    private void ShowAnalytics()
+    {
+        dashboardPanel?.SetActive(false);
+        analyticsPanel?.SetActive(true);
+    }
+
+    private void ShowGraph()
+    {
+        analyticsPanel?.SetActive(false);
+        graphPanel?.SetActive(true);
+    }
+
+
 }

@@ -13,9 +13,9 @@ public class SessionEndController : MonoBehaviour
     private void OnDestroy() { if (player != null) player.OnPlayerDeath -= HandlePlayerDeath; }
     private void HandlePlayerDeath()
     {
-        Time.timeScale = 0f;
-        if (hudCanvas) hudCanvas.SetActive(false);
-        if (dashboardCanvas) dashboardCanvas.SetActive(true);
-        if (gameManager) gameManager.SetStateDirectly(GameState.Dashboard);
+        //Time.timeScale = 0f;
+        //if (hudCanvas) hudCanvas.SetActive(false);
+        //if (dashboardCanvas) dashboardCanvas.SetActive(true);
+        //if (gameManager) gameManager.SetStateDirectly(GameState.Dashboard);
     }
 }
