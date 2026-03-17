@@ -39,12 +39,7 @@ public class Enemy : MonoBehaviour
         
         if (movePack && HealthPack != null)
         {
-            HealthPack.transform.position = Vector3.MoveTowards(
-                HealthPack.transform.position,
-                player.position,
-                packSpeed * Time.deltaTime
-            );
-
+            HealthPack.transform.position = Vector3.MoveTowards(HealthPack.transform.position,player.position,packSpeed * Time.deltaTime);
             if (Vector3.Distance(HealthPack.transform.position, player.position) < 0.5f)
             {
                 playerCtrl.Heal(30);
@@ -57,15 +52,15 @@ public class Enemy : MonoBehaviour
             }
             return;
         }
-        
-        if (player == null) return;
         if (player.position.z > transform.position.z + 8f)
         {
             
             gameObject.SetActive(false);
             return;
         }
+        if (player == null) return;
         Vector3 direction = (player.position - transform.position).normalized;
+        transform.LookAt(player);
         transform.position += direction * speed * Time.deltaTime;
         if (Vector3.Distance(transform.position, player.position) < 1.5f) { Attack(); }
         
