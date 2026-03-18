@@ -7,6 +7,9 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private int shootDamage = 100;
     [SerializeField] private EnemySpawner spawner;
     [SerializeField] private CameraFollow cameraFollow;
+    [SerializeField] private BulletTracer bulletTracer;
+    [SerializeField] private ParticleSystem muzzelFlash;
+    [SerializeField] private Transform barrel;
     private void Start()
     {
         if (inputSystem == null) inputSystem = FindFirstObjectByType<InputSystem>();
@@ -60,6 +63,12 @@ public class CombatSystem : MonoBehaviour
                 minDist = dist;
             }
         }
+
+        Vector3 endPoint = closest != null? closest.transform.position : barrel.position + transform.forward * shootRange;
+        endPoint = new Vector3(endPoint.x, endPoint.y + 3f, endPoint.z);
+
+        muzzelFlash.Play();
+        bulletTracer.Fire(barrel.position, endPoint);
 
         if (closest != null) closest.TakeDamage(shootDamage);
 

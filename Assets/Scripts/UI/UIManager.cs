@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
         if (dashboardNxtBtn) dashboardNxtBtn.onClick.AddListener(() => ShowAnalytics());
         if (analyticsNxtBtn) analyticsNxtBtn.onClick.AddListener(() => ShowGraph());
         if (graphNxtBtn) graphNxtBtn.onClick.AddListener(() => gameManager.ReturnToIdle());
-        if (gameOverNextBtn) gameOverNextBtn.onClick.AddListener(() => gameManager.EndGame());
+        if (gameOverNextBtn) gameOverNextBtn.onClick.AddListener(() => gameManager.SetStateDirectly(GameState.Dashboard));
         if (gameOverRestartBtn) gameOverRestartBtn.onClick.AddListener(() => gameManager.ReturnToIdle());
 
         if (gameManager != null) gameManager.OnStateChanged += HandleStateChange;
