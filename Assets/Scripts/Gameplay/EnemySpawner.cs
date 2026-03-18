@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
-
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameStateManager gameManager;
@@ -11,9 +13,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float spawnDistance = 80f;
     [SerializeField]private int Zombies=10;
     [SerializeField] private float SpawnDuration=10f;
+    [SerializeField]private TextMeshProUGUI wavesText;
     private int spawnedCount;
     private int currentwave=1;
     private float spawnInterval;
+    
   
    
     
@@ -25,40 +29,44 @@ public class EnemySpawner : MonoBehaviour
         if (difficultyScaler == null) difficultyScaler = FindFirstObjectByType<DifficultyScaler>();
         if (player == null) player = FindFirstObjectByType<PlayerController>();
         spawnInterval=SpawnDuration/Zombies;
+        wavesText.text = "Wave-1";
+        StartCoroutine(Wavetimer());
+        spawnTimer=2f;
     }
     private void Update()
     {
         if (gameManager == null || !gameManager.IsPlaying) return;
         spawnTimer -= Time.deltaTime;
-        if (spawnedCount >= Zombies)
+        if (spawnedCount >= Zombies&&!AreEnemiesAlive())
         {
-            if (currentwave == 1)
+            if (currentwave < 3)
             {
-                
+                currentwave++;
+                wavesText.text = "Wave-" + currentwave;
+                StartCoroutine(Wavetimer());
+
                 Zombies += 5;
                 spawnInterval = SpawnDuration / Zombies;
                 spawnedCount = 0;
-                spawnTimer = 15f;
-                currentwave++;
-                return;
-            }
-            else if (currentwave == 2)
-            {
-                
-                Zombies += 5;
-                spawnInterval = SpawnDuration / Zombies;
-                spawnedCount = 0;
-                spawnTimer = 15f;
-                currentwave++;
+                spawnTimer = spawnInterval;
+
                 return;
             }
             else return;
         }
-        if (spawnTimer <= 0)
+        
+        
+        if (spawnTimer <= 0 && spawnedCount < Zombies)
         {
             SpawnEnemy();
             spawnTimer = spawnInterval;
         }
+    }
+    IEnumerator Wavetimer()
+    {
+        wavesText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        wavesText.gameObject.SetActive(false);
     }
     private void SpawnEnemy()
     {
@@ -74,12 +82,23 @@ public class EnemySpawner : MonoBehaviour
         bool spwanLeft = Random.value < 0.5;
         float laneX = spwanLeft ? -3f : 3f;
         Vector3 pos = new Vector3(laneX, 0, spawnDistance);
-
+    
         enemy.transform.position = pos;
         enemy.lane = spwanLeft? Enemy.Lane.Left : Enemy.Lane.Right;
         enemy.Initialize(player.transform);
         spawnedCount++;
+       
     }
+    bool AreEnemiesAlive()
+        {
+            foreach (var enemy in activeEnemies)
+            {
+                if (enemy.gameObject.activeInHierarchy)
+                    return true;
+            }
+
+            return false;
+        }
     private Enemy GetFromPool()
     {
         foreach (var e in activeEnemies) if (!e.gameObject.activeInHierarchy) return e;
