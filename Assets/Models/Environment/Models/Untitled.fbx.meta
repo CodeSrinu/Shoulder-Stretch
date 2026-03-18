@@ -1,0 +1,259 @@
+fileFormatVersion: 2
+guid: f29063220456d034b9c739e6aa6c9151
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAKE
+    second: {fileID: 2100000, guid: 3b957db0251084b4aace4f6118b55a51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungA_MAT
+    second: {fileID: 2100000, guid: c182553fddebf924da3082732b5cc7f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungA_part1_MAT
+    second: {fileID: 2100000, guid: 425a47740bfcab24f9a9fc976fb7f98d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungA_part2_MAT
+    second: {fileID: 2100000, guid: b621ead9044ef0c4cbd155ebcbb87323, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungB_MAT
+    second: {fileID: 2100000, guid: 37e518cf6c03fb3439acc5e28c40bdaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungB_part1_MAT
+    second: {fileID: 2100000, guid: 4b01522c55bd6c74bab2f339fe6288d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungB_part2_MAT
+    second: {fileID: 2100000, guid: 5b7d2f84d8b476c48ba953fef0c143c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungC_MAT
+    second: {fileID: 2100000, guid: 000b131efd156c1428a2ff0e39268bb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungD_MAT
+    second: {fileID: 2100000, guid: 56ea813e7c8651048b7d78be0385b215, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungE_MAT
+    second: {fileID: 2100000, guid: e72684249f9964546b88f118c0d72595, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungF_MAT.001
+    second: {fileID: 2100000, guid: 86d18f66ffceab3459fb7e694d4608df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungG_MAT
+    second: {fileID: 2100000, guid: 123ce261ee3d78e4b8b19c5ff8cddc57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungH_MAT
+    second: {fileID: 2100000, guid: 2a1efd19e4bfc0741a029377fa39c165, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungI_MAT.001
+    second: {fileID: 2100000, guid: 694291a1882a1c14c815742e0cca7718, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungK_atap_MAT
+    second: {fileID: 2100000, guid: 5007eb61a48d33f4c84f0f5f44b2992d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungK_basketballCourt_MAT
+    second: {fileID: 2100000, guid: c09db4cb073d74246b78d54a350b367f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungK_dinding_MAT
+    second: {fileID: 2100000, guid: e38b1ed04ec7a75479557a9132473481, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungK_gate_MAT
+    second: {fileID: 2100000, guid: 6a6f45785e5be8748b03730c5c1866c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungK_lantai_MAT
+    second: {fileID: 2100000, guid: be3e23438630a5042bcd980b5f29ccab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungK_tanggaBatu_MAT
+    second: {fileID: 2100000, guid: 94763805bafa4184e836aa302b853a60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungL_MAT
+    second: {fileID: 2100000, guid: 38630fe877480954ca01ff7993e5e108, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungM_MAT
+    second: {fileID: 2100000, guid: 03039dc0f6eda8c479249d3a98a6c585, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungM_floor_MAT
+    second: {fileID: 2100000, guid: c7758df503cadab43b668f1a2f14cef1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_L_gedungM_wall_MAT
+    second: {fileID: 2100000, guid: 4673c83be20ed9b479d7d77cc033027b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_STR_jalanan_1_MAT
+    second: {fileID: 2100000, guid: ad808747ab905de45b6b93e63ebd476c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLD_STR_jalanan_2_MAT
+    second: {fileID: 2100000, guid: 775cbdb2bd0744b418335656ad660ca7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VHC_L_burnedCar_ID1_MAT
+    second: {fileID: 2100000, guid: 657d2c132b6d239449a7a078318aa3fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VHC_L_burnedCar_ID2_MAT
+    second: {fileID: 2100000, guid: e2105e2fd1cc97949923319a7d61023e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VHC_L_mobilKusam01_MAT
+    second: {fileID: 2100000, guid: f88bfe582e0abf941aad1f98b2e02bf1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VHC_L_vec_MAT
+    second: {fileID: 2100000, guid: e9c9f1cd50f909f40acb41d5890e333f, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
