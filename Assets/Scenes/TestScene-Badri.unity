@@ -1406,10 +1406,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 802350960}
   difficultyScaler: {fileID: 802350959}
-  punchCooldown: 0.5
-  pickupCooldown: 1
-  shootCooldown: 0.3
-  shieldCooldown: 2
   animator: {fileID: 0}
 --- !u!114 &802350959
 MonoBehaviour:
@@ -1704,6 +1700,9 @@ MonoBehaviour:
   punchDamage: 100
   shootRange: 50
   shootDamage: 100
+  bullet: {fileID: 0}
+  bulletTarget: {fileID: 0}
+  spawner: {fileID: 0}
 --- !u!114 &835655360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,6 +1720,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   maxAmmo: 10
+  currentAmmo: 0
   shieldDuration: 2
 --- !u!65 &835655361
 BoxCollider:
@@ -2658,10 +2658,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f66cddbec4ad5245adde93e218a3fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  fitness: {fileID: 0}
   gameManager: {fileID: 0}
-  hudCanvas: {fileID: 0}
-  dashboardCanvas: {fileID: 0}
+  input: {fileID: 0}
+  score: {fileID: 0}
 --- !u!1 &1406140933
 GameObject:
   m_ObjectHideFlags: 0
@@ -3817,10 +3817,13 @@ MonoBehaviour:
   gameManager: {fileID: 802350960}
   difficultyScaler: {fileID: 802350959}
   player: {fileID: 835655360}
-  enemyPrefab: {fileID: -8586104294293681367, guid: e3cf0fdf155efe9478f86f3b13b06751,
+  enemyPrefab: {fileID: 9155921858628269061, guid: 59eae363a370d7144a2c33cf5640045c,
     type: 3}
   spawnWidth: 8
-  spawnDistance: 30
+  spawnDistance: 80
+  Zombies: 10
+  SpawnDuration: 10
+  activeEnemies: []
 --- !u!4 &2050618009
 Transform:
   m_ObjectHideFlags: 0

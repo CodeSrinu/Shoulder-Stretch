@@ -7,12 +7,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int health = 100;
     [SerializeField] private float speed = 3f;
     [SerializeField] private int damage = 20;
-    [SerializeField]private float packSpeed=8f;
+    [SerializeField]private float packSpeed=16f;
+    [SerializeField]private ParticleSystem deathParticle;
     private int currentHealth;
     private Transform player;
     private bool movePack=false;
     private PlayerController playerCtrl;
-    private GameObject HealthPack;
+    private GameObject AmmoPack;
     private Transform packParent;
     private Vector3 packLocalPos;
 
@@ -20,9 +21,9 @@ public class Enemy : MonoBehaviour
     public Lane lane;
     void Awake()
     {
-        HealthPack=transform.Find("HealthPack").gameObject;
-        packParent = HealthPack.transform.parent;
-        packLocalPos = HealthPack.transform.localPosition;
+        AmmoPack=transform.Find("AmmoPack").gameObject;
+        packParent = AmmoPack.transform.parent;
+        packLocalPos = AmmoPack.transform.localPosition;
 
     }
     public void Initialize(Transform target)
@@ -30,25 +31,25 @@ public class Enemy : MonoBehaviour
         player = target;
         playerCtrl = player.GetComponent<PlayerController>();
         currentHealth = health;
-        if (HealthPack != null)
+        if (AmmoPack != null)
         {
-            HealthPack.SetActive(false);
-            HealthPack.SetActive(UnityEngine.Random.value<0.3f);
+            AmmoPack.SetActive(false);
+            AmmoPack.SetActive(UnityEngine.Random.value<0.3f);
         }
         gameObject.SetActive(true);
     }
     private void Update()
     {
         
-        if (movePack && HealthPack != null)
+        if (movePack && AmmoPack != null)
         {
-            HealthPack.transform.position = Vector3.MoveTowards(HealthPack.transform.position,player.position,packSpeed * Time.deltaTime);
-            if (Vector3.Distance(HealthPack.transform.position, player.position) < 0.5f)
+            AmmoPack.transform.position = Vector3.MoveTowards(AmmoPack.transform.position,player.position,packSpeed * Time.deltaTime);
+            if (Vector3.Distance(AmmoPack.transform.position, player.position) < 0.5f)
             {
-                playerCtrl.Heal(30);
-                HealthPack.transform.SetParent(packParent);
-                HealthPack.transform.localPosition = packLocalPos;
-                HealthPack.SetActive(false);
+                playerCtrl.AmmoReload(5);
+                AmmoPack.transform.SetParent(packParent);
+                AmmoPack.transform.localPosition = packLocalPos;
+                AmmoPack.SetActive(false);
                 movePack = false;
                 OnEnemyDeath?.Invoke(this);
                 gameObject.SetActive(false);
@@ -76,14 +77,15 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        deathParticle.Play();
         if (currentHealth <= 0) Die();
     }
     private void Die()
     {
-        if (HealthPack != null && HealthPack.activeSelf)
+        if (AmmoPack != null && AmmoPack.activeSelf)
         {
-            HealthPack.transform.SetParent(null);
-            HealthPack.SetActive(true);
+            AmmoPack.transform.SetParent(null);
+            AmmoPack.SetActive(true);
             movePack=true;
             return;
              

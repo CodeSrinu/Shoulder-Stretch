@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     public int currentHealth;
     [SerializeField] private int maxAmmo = 10;
-    private int currentAmmo;
+    public int currentAmmo;
     [SerializeField] private float shieldDuration = 2.0f;
     private bool isShieldActive;
     private float shieldTimer;
@@ -79,9 +79,9 @@ public class PlayerController : MonoBehaviour
         shieldTimer = shieldDuration;
         OnShieldStatusChanged?.Invoke(true);
     }
-    public void Heal(int amount)
+    public void AmmoReload(int amount)
     {
-        currentHealth = Mathf.Min(CurrentHealth + amount, MaxHealth);
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        currentAmmo = Mathf.Min(CurrentAmmo+ amount, maxAmmo);
+        OnAmmoChanged?.Invoke(currentAmmo);
     }
 }
